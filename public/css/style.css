@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2? family= Source+Code+Pro:ital,wght@1,500 & display=swap');
+
+body{
+    
+    margin: 0;
+    font-family: 'roboto', sans-serif;
+    background: url('../imagen/fondo.png');
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
+    /*display: flex;
+    flex-direction: column;
+    min-height: 100vh;*/
+}
+.contenedorBar::-webkit-scrollbar{
+    width: 12px;
+    
+
+}
+.contenedorBar::-webkit-scrollbar-thumb{
+    background: #8e99a1;
+    border-radius: 7px;
+}
+.inicio{  
+    padding-left: 40px;
+    margin: 20px;
+    display: inline-block;
+    margin-left: 60px;
+   
+
+}
+
+/*animacion de nav*/
+.nav-link:hover{
+   
+    transform: scale(1.1);
+    
+}
+
+.btn-primary{
+    background-color: purple;
+    border: none;
+}
+
+.inf{  
+    margin: auto;
+    padding:20px;
+   
+}
+.contenedor{ 
+    padding:20px;
+    width: 1000px;
+    height: 3000px;
+
+}
+
+.imagen{ 
+    width: 400px; 
+    height: 400px;
+}
+.groups{ 
+    display: inline-block;
+
+}
+#map{ 
+    height: 100%
+    
+}
+/*Estilo de login*/
+#login{
+    margin-top: 50px;
+    background:  #8e99a1;
+}
+/*Estilo de registro*/
+#registro{
+    margin-top: 50px;
+    background:#8e99a1 ;
+}
+.register::-webkit-scrollbar{
+    width: 12px;
+}
+.register::-webkit-scrollbar-thumb{
+    background: #8e99a1;
+    border-radius: 7px;
+}
+/*estilo boton compra
+.compra{
+    white-space: nowrap;
+
+}
+.compra2{
+    vertical-align: top;
+}*/
+/*Estilo footer*/
+.footer {
+    margin-top: 20px;
+    padding: 1em 0;
+    background: #8e99a1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /*margin-top:auto ;*/
+}
+
+.footer .menu a {
+    color: #fff;
+    display:block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    width: 14%;
+}
+.enlace:hover{
+    color: purple;
+    transform: scale(1.1);
+}
+/*.footer #enlace1{
+    display: inline-block;
+    margin-bottom: 8px; 
+    text-decoration: none;
+    
+}*/
+/* estilo totalis */
+.compra{
+    display: inline-block;
+    flex-direction: row;
+}
+.totalis {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 100px;
+    font-size: 20px;
+
+}
+.totalus {
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 2px; 
+    font-size: 21px;
+    border: 3px solid grey ;
+
+}
+/*Estilos crud*/
+.crear {
+    text-align: center;
+}
+/*Estilo de crear producto*/
+.inicio-crear{
+    width: 500px;
+	height: 420px;
+	margin: auto;
+	margin-top: 100px;
+	padding: 20px 30px;
+    
+}
+/*Estilo de editar producto*/
+.inicio-editar{
+    width: 500px;
+	height: 420px;
+	margin: auto;
+	margin-top: 100px;
+	padding: 20px 30px;
+}
+/*estilo de historial*/
+#historial::-webkit-scrollbar{
+    width: 12px;
+   
+}
+#historial::-webkit-scrollbar-thumb{
+    background: #8e99a1;
+    border-radius: 7px;
+}
+/*estilo de about*/
+.todo::-webkit-scrollbar{
+    width: 12px;
+}
+.todo::-webkit-scrollbar-thumb{
+    background: #8e99a1;
+    border-radius: 7px;
+}
+
+.sub{
+    margin-left: 30%;
+    color: #8e99a1;
+    text-align: center;
+    padding: 30px
+}
+.sub h2{
+    margin-left: -8px;
+    background: #fff;
+    text-align:center;
+    animation:both;
+    width: 500px;
+    height: 130px;
+    border: 2px solid #8e99a1;
+    padding: 5px;
+}
+.sub1 h3{
+    color: #8e99a1;
+    display:flexbox;
+    flex-direction: row;
+    padding: 10px;
+}
+.mdf{
+    margin-top: -310px;
+    margin-left: 50%;
+}
+/*.carousel{
+    margin-top: 10px;
+}*/
+.carousel img{
+    height: 60vh;
+}
+.todo .card{
+    display: inline-block;
+    margin-left: 55px;
+    font-size: 18px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 13px rgba(0,0,0,0.3);
+    cursor: default;
+    transition: all 500ms ease;
+}
+.todo .card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    transform: translateY(-3%);
+}
+#tarjeta img{
+    height: 30vh;
+    
+}
+.container h1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    color: #8e99a1;
+    margin-top: 30px;
+}
+.container #efectotexto{
+    background-color: #FFF;
+    color: #8e99a1;
+    text-align: center;
+    
+    /*width: 200px;
+    border: 2px solid #8e99a1;*/
+    white-space: nowrap;
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    padding: 20px;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    margin-top: 50px;
+    /*resize:horizontal;*/
+}
+.container #efectotexto2{
+    background-color: #fff;
+    color: #8e99a1;
+    text-align: center;
+    /*width: 200px;
+    border: 2px solid #8e99a1;*/
+    white-space: nowrap;
+    /*overflow: hidden;
+    text-overflow: ellipsis;*/
+    padding: 20px;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    /*resize:horizontal;*/
+}
+/*Estilo de mas vendido*/
+.top::-webkit-scrollbar{
+    width: 12px;
+}
+.top::-webkit-scrollbar-thumb{
+    background: #8e99a1;
+    border-radius: 7px;
+}
+/*Estilo crud cliente*/
+.cliente::-webkit-scrollbar{
+    width: 12px;
+}
+.cliente::-webkit-scrollbar-thumb{
+    background: #8e99a1;
+    border-radius: 7px;
+}
+/* efecto index */
+#efectocarrito{
+    border-radius: 15px;
+    box-shadow: 0px 3px 13px rgba(0,0,0,0.3);
+    cursor: default;
+    transition: all 500ms ease;
+}
+#efectocarrito:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    transform: translateY(-3%);
+}

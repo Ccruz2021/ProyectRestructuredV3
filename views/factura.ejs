@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FACTURA </title>
+    
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <style >
+      @media print {
+         body *{
+           visibility: hidden;
+         }
+         .print-container, .print-container * {
+           visibility: visible;
+
+         }
+      }
+    </style>
+</head>
+
+<body>
+ 
+  <%- include('./partials/navbar.ejs') %>
+
+  <%- include('./partials/message.ejs') %>
+
+  <%total = 0%>
+  <% results.forEach((carrito) => { %>
+    <% precio = carrito.precio %>
+    <% cantidad = carrito.cantidad %>
+   <% subtotal = cantidad * precio %>
+   <% total = subtotal + total %>
+
+      <div class="container flex-container, print-container" >
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">imagen</th>
+                <th scope="col">producto</th>
+                <th scope="col">nombre</th>
+                <th scope="col">descripcion</th>
+                <th scope="col"> cantidad </th>
+                <th scope="col"> precio </th>
+                <th scope="col"> total</th>
+              </tr>
+            </thead>
+            <form action="#"  method="post" id="formulario" >
+            <tbody>
+              <tr>
+                <th scope="col"> <input type="text" class="form-control " name="imagen" id="imagen" value="<%= carrito.imagen %>" hidden >  <img style="width: 100px;" src="/imagen/<%=carrito.imagen %>">          </th>
+                <th scope="col">  <input type="text" class="form-control " name="producto" id="producto" value="<%= carrito.producto %>" hidden >  <%= carrito.producto %>     </th>
+                <th scope="col"> <input type="text" class="form-control " name="n_producto" id="n_producto" value="<%= carrito.nombre %>"  hidden >  <%= carrito.nombre %> </th>
+                <th scope="col"> <input type="text" class="form-control " name="description" id="description" value="<%= carrito.description %>" hidden >  <%= carrito.description %></th>
+                <th scope="col"> <input type="number" class="form-control " name="cantidad" id="cantidad" value="<%= carrito.cantidad %>" hidden >  <%= carrito.cantidad %> </th>
+                <th scope="col"> <input type="number" class="form-control " name="precio" id="precio" value="<%= carrito.precio %>" hidden > <%= carrito.precio %></th>
+                <th scope="col"><%= subtotal %>  </th>
+              </tr>
+            </tbody>
+          </form>
+          </table>
+        </div>
+      
+        <% }) %>
+        <div  style=" text-align: center;">
+        <div class="print-container">
+          <div style=" display: inline-block">
+            <p class="totalis" > El Precio total es de: <p class="totalus"><%= total %> </p></p>  
+          </div>
+        </div>
+        
+        </div>
+        <script type="text/javascript">
+           function imprimir() {
+             window.print();
+           }
+        </script>
+        <button type="button" onclick="imprimir()">
+          Print PDF
+       </button>
+      
+</body>
+</html>

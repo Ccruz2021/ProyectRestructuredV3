@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Carrito</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <style >
+      #visi{ display: none;}
+      @media print {
+        #visi{ display: block}
+         body *{
+           visibility: hidden;
+         }
+         .print-container, .print-container * {
+           visibility: visible;
+
+         }
+         .print-invisible, .print-invisible * {
+           visibility: hidden;
+      } 
+      
+    }
+    </style>
+  </head>
+
+
+<body class="contenedorBar">
+  
+  <%- include('./partials/navbar.ejs') %>
+
+  <%- include('./partials/message.ejs') %>
+
+  <div id="visi" class="print-container">
+    <a  id="logo1" >  <img src="imagen/Logo.png"  width="70" height="70" class=" rounded mx-auto d-block"></a>
+    
+      <br>
+    <h5> Nombre y apellido: <%= user.nombre %>  <%= user.apellido %> </h5>
+    <h5 >  Email : <%= user.email %>  </h5> 
+    <div style="display: inline-block ">
+     <h5 > Direccion: <%= user.direccion %></h5>
+    </div>
+   </div>
+
+
+  <%total = 0%>
+  
+
+      <div class="container flex-container print-container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">imagen</th>
+                <th scope="col">producto</th>
+                <th scope="col">nombre</th>
+                <th scope="col">descripcion</th>
+                <th scope="col"> cantidad </th>
+                <th scope="col"> precio </th>
+                <th scope="col"> total</th>
+              </tr>
+            </thead>
+          
+            <form action="/comprar" id="comprar" action="/actua"  method="post" >
+              <%for (var i = 0; i < results.length; i++) { %>
+                <% precio = results[i].precio %>
+                <% cantidad = results[i].cantidad %>
+               <% subtotal = cantidad * precio %>
+               <% total = subtotal + total %>
+               
+            <tbody>
+              <tr>
+                  <input type="text" name="id_carrito[];" id="id_carrito" value="<%= results[i].id_carrito %>" hidden >  
+                <th scope="col"> <input type="text" class="form-control " name="imagen[];" id="imagen" value="<%= results[i].imagen %>" hidden >  <img style="width: 100px;" src="/imagen/<%=results[i].imagen %>">          </th>
+                <th scope="col">  <input type="text" class="form-control " name="producto[];" id="producto" value="<%= results[i].producto %>" hidden >  <%= results[i].producto %>     </th>
+                <th scope="col"> <input type="text" class="form-control " name="n_producto[];" id="n_producto" value="<%= results[i].nombre %>"  hidden >  <%= results[i].nombre %> </th>
+                <th scope="col"> <input type="text" class="form-control " name="description[];" id="description" value="<%= results[i].description %>" hidden >  <%= results[i].description %></th>
+                <th scope="col"> <input type="number" class="form-control " name="cantidad[];" id="cantidad" value="<%= results[i].cantidad %>" hidden >  <%= results[i].cantidad %> </th>
+                <th scope="col"> <input type="number" class="form-control " name="precio[];" id="precio" value="<%= results[i].precio %>" hidden > <%= results[i].precio %></th>
+                <th scope="col"><%= subtotal %>  </th>
+                <th scope="col" class="print-invisible"> <a href="/delete/<%= results[i].id_carrito %> " class="btn btn-outline-danger print-invisible" > Borrar </a> </th>
+              </tr>
+            </tbody>
+            <% } %>
+           
+          </form>
+          <script type="text/javascript">
+            function imprimir() {
+              window.print();
+            }
+         </script>
+          </table>
+          <div  style=" text-align: center;">
+            <button type="submit" form="comprar" id="but" onclick="imprimir()" class="btn btn-primary print-invisible">  Comprar </a></button>
+            <div style=" display: inline-block;">
+              
+              <p class="totalis" > El Precio total es de: <p class="totalus"><%= total %> </p></p>  
+            </div>
+            </div>
+        </div>
+      
+     
+       
+        <%-include ('./partials/footer.ejs')%>
+</body>
+</html>
